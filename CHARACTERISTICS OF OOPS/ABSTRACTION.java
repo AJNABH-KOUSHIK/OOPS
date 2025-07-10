@@ -1,9 +1,12 @@
+// ABSTRACTION MEANS HIDING THE INTERNAL DETAILS AND SHOWING ONLY ESSENTIAL FEATURES TO THE USER
+// ABSTRACTION IN JAVA USES ACCESS MODIFIERS (LIKE PRIVATE, PUBLIC, ETC.)
+// TO CONTROL VISIBILITY AND HIDE INTERNAL DETAILS.
+ 
 // Abstract class - hides complex details
 abstract class Message {
     // Abstract method - only the name is shown, not how it works
     abstract void sendMessage();
 }
-
 // Concrete class - provides the actual implementation
 class SMS extends Message {
     // Implementation of abstract method
@@ -12,7 +15,6 @@ class SMS extends Message {
         System.out.println("Sending SMS to the user...");
     }
 }
-
 public class Main {
     public static void main(String[] args) {
         // User just creates an object and calls the method
