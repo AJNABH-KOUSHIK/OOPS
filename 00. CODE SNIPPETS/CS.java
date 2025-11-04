@@ -284,6 +284,71 @@ class Person {
         p.show();  // Output: Name: Koushik, Age: 18
     }
 }--------------------------------------------------------------------------------
+------------------------------------------------------------------- WRAPPER CLASS -----------------------------------------------
+public class AutoBox1 {
+    public static void main(String[] args) {
+        Integer a = 100;  // Autoboxing
+        Integer b = 100;  // Autoboxing (same cached value)
+        Integer c = 200;  // Autoboxing
+        Integer d = 200;  // Autoboxing
+        System.out.println(a == b);  // ✅ true (Integer cache: -128 to 127)
+        System.out.println(c == d);  // ❌ false (outside cache)
+        System.out.println(a.equals(b));  // ✅ true
+        System.out.println(c.equals(d));  // ✅ true
+    }
+}--------------------------------------------------------------
+public class AutoBox2 {
+    public static void main(String[] args) {
+        Integer x = 10;
+        int y = 10;
+        System.out.println(x == y); // ✅ true (unboxing x to primitive 10)
+        Integer a = 1000;
+        Integer b = 1000;
+        System.out.println(a == b); // ❌ false (different objects)
+        System.out.println(a.equals(b)); // ✅ true (value comparison)
+    }
+}---------------------------------------------------------------
+public class AutoBox3 {
+    public static void main(String[] args) {
+        Integer x = null;
+        int y = x;  // ❌ NullPointerException (unboxing null)
+        System.out.println(y);
+    } // Unboxing null causes a runtime error!
+}---------------------------------------------------------------
+public class AutoBox4 {
+    static void test(int i) { System.out.println("int"); }
+    static void test(Integer i) { System.out.println("Integer"); }
+    static void test(Object o) { System.out.println("Object"); }
+    public static void main(String[] args) {
+        int a = 10;
+        Integer b = 10;
+        test(a);   // ✅ int
+        test(b);   // ✅ Integer
+        test(null); // ✅ Integer (more specific than Object)
+    }
+}---------------------------------------------------------------
+public class AutoBox7 {
+    public static void main(String[] args) {
+        Long l = 10L;
+        Integer i = 10;
+        System.out.println(l.equals(i)); // ❌ false (different types)
+        System.out.println(l == i);      // ❌ compile-time error (different types)
+    }
+}----------------------------------------------------------------
+public class AutoBox9 {
+    public static void main(String[] args) {
+        Integer i1 = 128;
+        Integer i2 = 128;
+        if (i1 == i2)
+            System.out.println("Same");
+        else
+            System.out.println("Different"); // ✅ Different (no caching)
+    }
+}
+
+
+
+
 
 
 
